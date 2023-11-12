@@ -1,20 +1,5 @@
 import { Typography } from "@material-tailwind/react";
 
-const LINKS = [
-  {
-    title: "Product",
-    items: ["Overview", "Features", "Solutions", "Tutorials"],
-  },
-  {
-    title: "Company",
-    items: ["About us", "Careers", "Press", "News"],
-  },
-  {
-    title: "Resource",
-    items: ["Blog", "Newsletter", "Events", "Help center"],
-  },
-];
-
 const currentYear = new Date().getFullYear();
 
 const Footer = () => {
@@ -23,8 +8,8 @@ const Footer = () => {
       <footer className="relative w-full text-white ">
         <div className="w-full ">
           <div className="grid grid-cols-1 justify-between  md:grid-cols-2">
-            <div className="bg-[#1F2937] py-20 ">
-              <div className=" w-10/12 flex justify-end ">
+            <div className="bg-[#1F2937]  py-10 lg:py-20 ">
+              <div className=" w-10/12 mx-auto lg:mx-0 flex justify-center lg:justify-end ">
                 <div className="max-w-sm text-center">
                   <h1 className="mb-6 text-2xl font-medium">CONTACT US</h1>
                   <div className="space-y-1">
@@ -37,9 +22,9 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="bg-[#111827]   flex justify-end items-center ">
-              <div className="  w-10/12 flex justify-start">
-                <div className=" max-w-sm mb-5 py-20  text-center">
+            <div className="bg-[#111827]  flex justify-end items-center ">
+              <div className="  w-10/12 mx-auto lg:mx-0 flex justify-center lg:justify-start">
+                <div className=" max-w-sm mb-5 py-8  lg:py-20  text-center">
                   <h2 className="text-2xl  mb-6 font-medium">Follow US</h2>
                   <p className="text-sm font-medium mb-4">
                     Join us on social media
@@ -100,10 +85,10 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className=" bg-[#151515] w-full  border-blue-gray-50 py-4 ">
+          <div className=" bg-[#151515] w-full flex justify-center items-center  border-blue-gray-50 py-4 ">
             <Typography
               variant="small"
-              className="mb-4 text-center font-normal text-white font-Inter  md:mb-0"
+              className=" text-center  font-normal text-white font-Inter  "
             >
               {currentYear} Copyright &copy; CulinaryCloud. All rights reserved.
             </Typography>
