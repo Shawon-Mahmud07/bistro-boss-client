@@ -8,9 +8,7 @@ import { ThemeProvider } from "@material-tailwind/react";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider>
-      <div className="max-w-[1920px] font-Inter mx-auto">
-        <RouterProvider router={router} />
-      </div>
+      <RouterProvider router={router} />
     </ThemeProvider>
   </React.StrictMode>
 );
