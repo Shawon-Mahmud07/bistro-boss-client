@@ -12,7 +12,7 @@ import SectionTitle from "../../components/SectionTitle";
 
 const Category = () => {
   return (
-    <section className="lg:my-10 w-11/12 mx-auto">
+    <section className="lg:my-10 w-11/12 lg:w-9/12 mx-auto">
       <SectionTitle
         heading={"---From 11:00am to 10:00pm---"}
         subHeading={"ORDER ONLINE"}
@@ -41,14 +41,6 @@ const Category = () => {
         }}
         className="mySwiper"
       >
-        <SwiperSlide className="mb-12 relative  ">
-          <div className="w-full">
-            <img className="object-fill" src={slide1} alt="" />
-          </div>
-          <h2 className="text-white py-1 text-lg lg:text-3xl font-cinzel absolute bottom-0  w-full text-center">
-            Salads
-          </h2>
-        </SwiperSlide>
         <SwiperSlide className="mb-12">
           <div className="w-full">
             <img src={slide1} alt="" />

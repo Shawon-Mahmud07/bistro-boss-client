@@ -2,7 +2,7 @@ import bgCoverImg from "../../assets/home/chef-service.jpg";
 const BistroCover = () => {
   return (
     <div
-      className=" w-11/12 mx-auto py-5 lg:py-10 my-10  bg-no-repeat h-full  bg-cover"
+      className="w-11/12 lg:w-9/12 mx-auto py-5 lg:py-10 my-10  bg-no-repeat h-full  bg-cover"
       style={{ backgroundImage: `url(${bgCoverImg})` }}
     >
       <div className=" text-center">
