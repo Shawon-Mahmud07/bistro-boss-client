@@ -8,17 +8,15 @@ import {
   Avatar,
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { NavLink } from "react-router-dom";
 
 function NavList() {
   return (
     <ul className="my-2 text-white flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <Typography as="li" className="p-1 text-lg font-extrabold font-Inter">
-        <a
-          href="#"
-          className="flex items-center hover:text-blue-500 transition-colors"
-        >
+        <NavLink className="flex items-center hover:text-blue-500 transition-colors">
           HOME
-        </a>
+        </NavLink>
       </Typography>
       <Typography as="li" className="p-1 text-lg font-extrabold font-Inter">
         <a
@@ -37,11 +35,19 @@ function NavList() {
         </a>
       </Typography>
       <Typography as="li" className="p-1 text-lg font-extrabold font-Inter">
+        <NavLink
+          to="/menu"
+          className="flex items-center hover:text-blue-500 transition-colors"
+        >
+          OUR MENU
+        </NavLink>
+      </Typography>
+      <Typography as="li" className="p-1 text-lg font-extrabold font-Inter">
         <a
           href="#"
           className="flex items-center hover:text-blue-500 transition-colors"
         >
-          Our Shop{" "}
+          OUR SHOP{" "}
           <span>
             <img className="w-10 h-7 lg:w-14 lg:h-10" src={cartImg} alt="" />
           </span>

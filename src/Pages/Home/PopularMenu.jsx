@@ -1,18 +1,12 @@
-import { useEffect, useState } from "react";
+import useMenu from "../../Hooks/useMenu";
 import SectionTitle from "../../components/SectionTitle";
 import MenuItem from "../Shared/MenuItem";
 import { Button } from "@material-tailwind/react";
 
 const PopularMenu = () => {
-  const [menu, setMenu] = useState();
-  useEffect(() => {
-    fetch("/menu.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const popularItem = data?.filter((item) => item.category === "popular");
-        setMenu(popularItem);
-      });
-  }, []);
+  const [menu] = useMenu();
+  const popularItem = menu?.filter((item) => item.category === "popular");
+
   return (
     <div className="w-11/12 lg:w-9/12 mx-auto">
       <SectionTitle
@@ -21,7 +15,7 @@ const PopularMenu = () => {
       ></SectionTitle>
 
       <div className=" grid grid-cols xl:grid-cols-2  gap-5 md:gap-10">
-        {menu?.map((items, index) => (
+        {popularItem?.map((items, index) => (
           <MenuItem key={index} items={items}></MenuItem>
         ))}
       </div>
