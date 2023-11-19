@@ -4,7 +4,7 @@ const MenuItem = ({ items }) => {
   return (
     <div className=" py-4  shadow-lg flex flex-col  pl-3 pr-3 md:mr-0 md:pl-0   md:flex-row md:gap-5 md:space-x-2">
       <img
-        className="w-28 flex  h-28 rounded-tr-full rounded-br-full  rounded-bl-full"
+        className="w-28  flex  h-28 rounded-tr-full rounded-br-full  rounded-bl-full"
         src={image}
         alt=""
       />

@@ -14,3 +14,13 @@ body {
   height: 10px;
   opacity: 0.3;
 }
+.react-tabs__tab--selected {
+  color: #d99904 !important;
+  text-decoration: underline;
+}
+.react-tabs__tab-list {
+  border-bottom: none !important;
+}
+.react-tabs__tab {
+  border: none !important;
+}

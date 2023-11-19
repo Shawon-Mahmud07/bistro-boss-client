@@ -21,11 +21,13 @@ const Menu = () => {
       <Helmet>
         <title>Bistro Boss Restaurant | Menu</title>
       </Helmet>
+
       <Cover
         bgCoverImg={bgCoverImg}
         title={"OUR MENU"}
         subTitle={"Would you like to try a dish?"}
       ></Cover>
+
       <SectionTitle
         subHeading={"--- Don't miss---"}
         headingBlack={"TODAY'S OFFER"}

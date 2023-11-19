@@ -11,7 +11,7 @@ const SectionTitle = ({ heading, subHeading, headingBlack }) => {
         </h3>
       )}
       {headingBlack && (
-        <h3 className="text-[#151515] font-normal text-2xl lg:text-4xl border-y-2 lg:border-y-4 w-52 lg:w-full max-w-[424px] py-2 lg:py-5 mx-auto">
+        <h3 className="text-[#151515]  font-normal text-2xl lg:text-4xl border-y-2 lg:border-y-4 w-52 lg:w-full max-w-[424px] py-2 lg:py-5 mx-auto">
           {headingBlack}
         </h3>
       )}

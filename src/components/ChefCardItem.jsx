@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Card, CardHeader, CardBody, Button } from "@material-tailwind/react";
 const ChefCardItem = ({ item }) => {
-  const { name, recipe, image } = item;
+  const { name, recipe, image, price } = item;
   console.log(name, recipe, image);
   return (
     <Card className="flex flex-col   overflow-hidden bg-[#F3F3F3]">
@@ -9,10 +9,13 @@ const ChefCardItem = ({ item }) => {
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 rounded-none"
+        className="m-0  rounded-none"
       >
-        <div>
+        <div className="relative">
           <img className="object-cover w-full" src={image} alt="" />
+          <p className="bg-[#111827] absolute top-3 right-3 md:top-4  md:right-4 px-2 py-1   md:font-semibold text-white">
+            ${price}
+          </p>
         </div>
       </CardHeader>
 

@@ -6,7 +6,7 @@ const Cover = ({ bgCoverImg, title, subTitle }) => {
       style={{ backgroundImage: `url('${bgCoverImg}')` }}
     >
       <div className=" w-10/12 md:w-9/12 mx-auto text-center bg-[#15151599]  font-cinzel text-white">
-        <h1 className="text-2xl lg:text-3xl xl:text-6xl   pt-8 md:pt-16 xl:pt-32  md:font-bold">
+        <h1 className="text-2xl  lg:text-3xl xl:text-6xl   pt-8 md:pt-16 xl:pt-32  md:font-bold">
           {title}
         </h1>
         <h3 className=" md:text-lg 2xl:text-4xl lg:text-2xl pb-8 md:pb-16 lg:pb-32   md:font-semibold">

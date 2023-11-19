@@ -43,15 +43,15 @@ function NavList() {
         </NavLink>
       </Typography>
       <Typography as="li" className="p-1 text-lg font-extrabold font-Inter">
-        <a
-          href="#"
+        <NavLink
+          to="/order"
           className="flex items-center hover:text-blue-500 transition-colors"
         >
           OUR SHOP{" "}
           <span>
             <img className="w-10 h-7 lg:w-14 lg:h-10" src={cartImg} alt="" />
           </span>
-        </a>
+        </NavLink>
       </Typography>
       <Typography as="li" className="p-1 text-lg font-extrabold font-Inter">
         <a

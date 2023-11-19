@@ -86,10 +86,7 @@ const Footer = () => {
             </div>
           </div>
           <div className=" bg-[#151515] w-full flex justify-center items-center  border-blue-gray-50 py-4 ">
-            <Typography
-              variant="small"
-              className=" text-center  font-normal text-white font-Inter  "
-            >
+            <Typography className="text-xs md:text-sm text-center  font-normal text-white font-Inter  ">
               {currentYear} Copyright &copy; CulinaryCloud. All rights reserved.
             </Typography>
           </div>
