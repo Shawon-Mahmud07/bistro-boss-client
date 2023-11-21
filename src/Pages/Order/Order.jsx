@@ -7,10 +7,15 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { useState } from "react";
 import OrderCard from "../../components/OrderCard";
+import { useParams } from "react-router-dom";
 
 const Order = () => {
-  const [tabIndex, setTabIndex] = useState(0);
+  const categories = ["SALAD", "PIZZA", "SOUP", "DESSERTS", "DRINKS"];
+  const { category } = useParams();
+  const initialIndex = categories.indexOf(category);
+  const [tabIndex, setTabIndex] = useState(initialIndex);
   const [menu] = useMenu();
+
   const saladItem = menu?.filter((item) => item.category === "salad");
   const pizzaItem = menu?.filter((item) => item.category === "pizza");
   const soupItem = menu?.filter((item) => item.category === "soup");
@@ -31,7 +36,7 @@ const Order = () => {
       {/* // react - tabs */}
       <div className="w-11/12 lg:w-9/12 my-6 md:my-12 mx-auto">
         <Tabs
-          className="text-center md:mt-16  "
+          className="text-center md:mt-16"
           selectedIndex={tabIndex}
           onSelect={(index) => setTabIndex(index)}
         >

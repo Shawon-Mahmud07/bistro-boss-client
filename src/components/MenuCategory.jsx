@@ -7,7 +7,7 @@ const MenuCategory = ({ items, img, title, subtitle }) => {
   return (
     <div className="my-12 lg:my-16">
       {/* cover image */}
-      {title && (
+      {subtitle && (
         <CoverCategory
           bgCoverImg={img}
           title={title}
@@ -24,7 +24,7 @@ const MenuCategory = ({ items, img, title, subtitle }) => {
       </div>
       {/* Button */}
       <div className="flex justify-center mt-6">
-        <Link to="/order">
+        <Link to={`/order/${title}`}>
           <Button
             variant="outlined"
             className="text-[#1F2937]  border-0 border-b-2 lg:border-b-4 lg:text-xl font-semibold border-[#1F2937] hover:border"

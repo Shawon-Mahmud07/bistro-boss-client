@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Card, CardHeader, CardBody, Button } from "@material-tailwind/react";
 const ChefCardItem = ({ item }) => {
   const { name, recipe, image, price } = item;
-  console.log(name, recipe, image);
+
   return (
     <Card className="flex flex-col   overflow-hidden bg-[#F3F3F3]">
       <CardHeader

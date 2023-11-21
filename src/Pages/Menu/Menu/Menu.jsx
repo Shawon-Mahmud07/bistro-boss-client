@@ -11,7 +11,7 @@ import soupImg from "../../../assets/menu/soup-bg.jpg";
 
 const Menu = () => {
   const [menu] = useMenu();
-  const offeredItem = menu?.filter((item) => item.category === "offered");
+  const drinksItem = menu?.filter((item) => item.category === "drinks");
   const dessertItem = menu?.filter((item) => item.category === "dessert");
   const pizzaItem = menu?.filter((item) => item.category === "pizza");
   const saladItem = menu?.filter((item) => item.category === "salad");
@@ -32,7 +32,7 @@ const Menu = () => {
         subHeading={"--- Don't miss---"}
         headingBlack={"TODAY'S OFFER"}
       ></SectionTitle>
-      <MenuCategory items={offeredItem}></MenuCategory>
+      <MenuCategory items={drinksItem} title={"DRINKS"}></MenuCategory>
       <MenuCategory
         items={dessertItem}
         img={desertImg}
