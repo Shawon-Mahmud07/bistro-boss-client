@@ -13,7 +13,9 @@ const Order = () => {
   const categories = ["SALAD", "PIZZA", "SOUP", "DESSERTS", "DRINKS"];
   const { category } = useParams();
   const initialIndex = categories.indexOf(category);
-  const [tabIndex, setTabIndex] = useState(initialIndex);
+  const [tabIndex, setTabIndex] = useState(
+    initialIndex === -1 ? 0 : initialIndex
+  );
   const [menu] = useMenu();
 
   const saladItem = menu?.filter((item) => item.category === "salad");
@@ -21,6 +23,7 @@ const Order = () => {
   const soupItem = menu?.filter((item) => item.category === "soup");
   const dessertItem = menu?.filter((item) => item.category === "dessert");
   const drinksItem = menu?.filter((item) => item.category === "drinks");
+
   return (
     <div>
       {/* page title */}

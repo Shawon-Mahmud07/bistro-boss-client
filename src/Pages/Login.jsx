@@ -19,9 +19,21 @@ import {
 } from "@material-tailwind/react";
 // react-icons
 import { HiEyeOff, HiEye } from "react-icons/hi";
-import { useEffect, useState } from "react";
+// react-toastify
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+
+import { useContext, useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProviders";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
+  const { userSignIn } = useContext(AuthContext);
   const [passwordIcon, setShowPassword] = useState(false);
   const [captchaValue, setCaptchaValue] = useState("");
   const [disabled, setDisabled] = useState(true);
@@ -53,20 +65,44 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+
+    userSignIn(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        if (user) {
+          toast.success("User Logged in Successfully.");
+          // Navigate after Login
+          // setTimeout(() => {
+          //   navigate(location?.state ? location.state : "/");
+          // }, 2000);
+        }
+        setTimeout(() => {
+          navigate(from, { replace: true });
+        }, 2000);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        if (errorMessage) {
+          toast.error("Invalid Email & Password");
+        }
+      });
   };
 
   return (
     <div
-      className="h-full lg:h-auto lg:flex items-center py-10"
+      className="lg:h-full   lg:flex items-center "
       style={{ backgroundImage: `url(${bgImg})` }}
     >
-      <div className="w-11/12 py-4 lg:pb-0 lg:w-10/12 mx-auto flex flex-col items-center lg:flex-row  lg:shadow-xl">
-        <div className=" lg:w-6/12 mx-auto">
-          <img className="flex justify-center items-center" src={img} alt="" />
+      <Helmet>
+        <title>Bistro Boss Restaurant | Sign In</title>
+      </Helmet>
+
+      <div className="w-11/12  py-5  lg:w-10/12  mx-auto flex flex-col items-center lg:flex-row  lg:shadow-xl">
+        <div className=" lg:w-6/12 mx-auto ">
+          <img src={img} alt="" />
         </div>
 
-        <div className=" w-full lg:w-6/12 mt-5 md:mt-0">
+        <div className=" w-full lg:w-6/12 mt-5 md:mt-0 ">
           <h2 className="text-center text-[#151515] text-2xl lg:text-4xl font-semibold lg:font-bold">
             Login
           </h2>
@@ -180,13 +216,16 @@ const Login = () => {
 
               <Typography className="mt-4  text-center font-normal text-[#d4973cb2]">
                 New here?
-                <a href="#" className="font-medium pl-1 ">
+                <Link
+                  to="/sign-up"
+                  className="font-medium hover:text-black   pl-1 "
+                >
                   Create a New Account
-                </a>
+                </Link>
               </Typography>
 
               {/* another login way */}
-              <Typography className="mt-2 text-[#444] lg:text-lg text-center font-medium">
+              <Typography className="mt-2 text-[#444]  lg:text-lg text-center font-medium">
                 Or sign in with
               </Typography>
               {/* icon */}
@@ -205,6 +244,7 @@ const Login = () => {
           </Card>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

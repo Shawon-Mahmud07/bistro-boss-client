@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import cartImg from "../../assets/icon/2 2.png";
 import userImg from "../../assets/icon/Frame.png";
 import {
@@ -6,13 +6,28 @@ import {
   Typography,
   IconButton,
   Avatar,
+  Button,
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Navigate } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProviders";
+import { toast } from "react-toastify";
 
 function NavList() {
   const activeNav = " text-[#EEFF25]";
   const normalNav = "flex items-center  transition-colors";
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("Sign-out successful.");
+        Navigate("/login");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <ul className="my-2 text-white flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center  lg:gap-6">
@@ -70,22 +85,25 @@ function NavList() {
           </span>
         </NavLink>
       </Typography>
-      {/* <Typography as="li" className="px-1 xl:text-lg  text-lg md:text-sm lg:font-extrabold font-Inter">
-        <a
-          href="#"
-          className="flex items-center hover:text-blue-500 transition-colors"
+
+      {user ? (
+        <Button
+          onClick={handleLogOut}
+          className="hidden md:block bg-[#FF7F56]  rounded-md  font-semibold text-base text-[#fff]"
+          size="sm"
         >
-          SIGN OUT
-        </a>
-      </Typography> */}
-      <Typography
-        as="li"
-        className="px-1  text-lg md:text-sm xl:text-lg  lg:font-extrabold font-Inter"
-      >
-        <NavLink to="/login" className="flex items-center  transition-colors">
-          SIGN IN
-        </NavLink>
-      </Typography>
+          <span>Log Out</span>
+        </Button>
+      ) : (
+        <Link to="/login">
+          <Button
+            className="block bg-[#FF7F56]  rounded-md  font-semibold text-base text-[#fff]"
+            size="sm"
+          >
+            <span>Login</span>
+          </Button>
+        </Link>
+      )}
       <Avatar src={userImg} alt="avatar" withBorder={false} />
     </ul>
   );
@@ -93,17 +111,15 @@ function NavList() {
 
 const NavBar = () => {
   const [openNav, setOpenNav] = React.useState(false);
-
   const handleWindowResize = () =>
     window.innerWidth >= 960 && setOpenNav(false);
-
   React.useEffect(() => {
     window.addEventListener("resize", handleWindowResize);
-
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
+
   return (
     <div className="lg:fixed w-full  z-10 px-6 py-3 bg-gradient-to-b from-[#1e1f27] to-[#380e16] lg:bg-gradient-to-r lg:from-[#15151580] lg:to-[#1d1c1c80]   ">
       <div className="flex items-center justify-between text-blue-gray-900">
